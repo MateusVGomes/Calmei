@@ -1,0 +1,11 @@
+image: gitpod/workspace-full:latest
+
+tasks:
+  - init: |
+      curl https://start.spring.io/starter.tgz \
+        -d bootVersion=2.5.0 \
+        -d dependencies=web,data-jpa,h2 \
+        -d baseDir=app \
+        | tar -xzvf -
+      cd app
+  - command: ./mvnw spring-boot:run
